@@ -2,10 +2,12 @@
 [tools]
 dotnet = "10"
 
+# The tasks call mise's dotnet by its full path: on Windows mise puts its tools after the system
+# PATH, so a dotnet installed by Visual Studio would win and it may have no SDK 10.
 [tasks.dev]
 description = "Start Tablerito at http://localhost:8080"
-run = "dotnet run --project Tablerito"
+run = '"{{ env.DOTNET_ROOT }}/dotnet" run --project Tablerito'
 
 [tasks.test]
 description = "Run the tests"
-run = "dotnet test"
+run = '"{{ env.DOTNET_ROOT }}/dotnet" test'
