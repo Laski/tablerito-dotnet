@@ -1,0 +1,9 @@
+{
+  "Tablerito": {
+    "Notifications": {
+      "Url": "https://avisos.tablerito.internal/notifications",
+      "ApiKey": "really-dont-tell-anyone"
+    },
+    "Environment": "production"
+  }
+}

@@ -1,0 +1,17 @@
+bin/
+obj/
+publish/
+TestResults/
+
+# What the app leaves behind when it runs
+attachments/
+tablerito.log
+
+# IDEs
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+
+.DS_Store

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>@ViewData["Title"]</title>
+  <link rel="stylesheet" href="/styles.css">
+  @RenderSection("Scripts", required: false)
+</head>
+<body>
+<header>
+  <a class="brand" href="/">Tablerito</a>
+  @RenderSection("Header", required: false)
+</header>
+
+@RenderBody()
+</body>
+</html>

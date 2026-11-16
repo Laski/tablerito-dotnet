@@ -1,0 +1,11 @@
+# What Tablerito needs to run
+[tools]
+dotnet = "10"
+
+[tasks.dev]
+description = "Start Tablerito at http://localhost:8080"
+run = "dotnet run --project Tablerito"
+
+[tasks.test]
+description = "Run the tests"
+run = "dotnet test"

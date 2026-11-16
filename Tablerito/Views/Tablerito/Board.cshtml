@@ -1,0 +1,52 @@
+@model Board
+@{
+    ViewData["Title"] = $"{Model.Name} · Tablerito";
+}
+
+@section Header {
+  <h1>@Model.Name</h1>
+}
+
+@section Scripts {
+  <script src="/board.js" defer></script>
+}
+
+<main class="lists">
+  @foreach (var list in Model.Lists)
+  {
+    <section class="list" data-list-id="@list.Id">
+      <h2>@list.Name</h2>
+
+      @foreach (var card in list.Cards)
+      {
+        <article class="card">
+          <p>@card.Title</p>
+
+          @if (card.Attachments.Count > 0)
+          {
+            <ul class="attachments">
+              @foreach (var attachment in card.Attachments)
+              {
+                <li><a href="/attachments/@Uri.EscapeDataString(attachment)">@attachment</a></li>
+              }
+            </ul>
+          }
+
+          <form class="move" method="post" action="/cards/@card.Id/move" hidden>
+            <input type="hidden" name="listId">
+          </form>
+
+          <form class="attach" method="post" enctype="multipart/form-data"
+                action="/cards/@card.Id/attachments">
+            <label>Adjuntar archivo<input type="file" name="file" hidden></label>
+          </form>
+        </article>
+      }
+
+      <form class="inline" method="post" action="/lists/@list.Id/cards">
+        <input name="title" placeholder="Nueva tarjeta" required>
+        <button>Agregar</button>
+      </form>
+    </section>
+  }
+</main>
